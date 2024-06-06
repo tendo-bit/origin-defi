@@ -1,0 +1,8 @@
+query Apies($limit: Int) {
+  oethapies(limit: $limit, orderBy: timestamp_DESC, where: {timestamp_gt: "2023-06-06T12:38:47.000000Z"}) {
+    id
+    timestamp    
+    apy7DayAvg
+    apy30DayAvg
+  }
+}

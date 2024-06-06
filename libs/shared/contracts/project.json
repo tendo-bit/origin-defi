@@ -1,0 +1,34 @@
+{
+  "name": "shared-contracts",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/contracts/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "generate-abis-json": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm tsx libs/shared/contracts/scripts/generateAbisJson.ts",
+        "parallel": false
+      }
+    },
+    "generate-abis-ts": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm tsx libs/shared/contracts/scripts/generateAbisTs.ts",
+        "parallel": false
+      }
+    },
+    "generate-contracts": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm tsx libs/shared/contracts/scripts/generateContracts.ts",
+        "parallel": false
+      }
+    }
+  }
+}
